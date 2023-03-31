@@ -1,0 +1,50 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin: 0 10px;
+  }
+  
+  .menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .buttons {
+    display: flex;
+  }
+  
+  .signup-btn, .signin-btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .signup-btn:hover, .signin-btn:hover {
+    background-color: #ccc;
+  }
+  
