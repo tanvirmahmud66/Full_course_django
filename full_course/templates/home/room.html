@@ -3,7 +3,8 @@
 {%block content%}
     <h1>This is Room</h1>
     {%for room in rooms%}
-        <p>{{room.id}}--------<a href="{% url 'room_dynamic_route' room.name %}">{{room.name}}</a></p>
+        <p>{{room.id}} ) <a href="{% url 'room_dynamic_route' room.id %}">{{room.name}}</a></p>
     {%endfor%}
     <h1>{{name}}</h1>
+    <p>{{description}}</p>
 {%endblock content%}

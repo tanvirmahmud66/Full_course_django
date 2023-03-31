@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import RoomDatabase
 # Create your views here.
 
 rooms = [
@@ -14,8 +14,10 @@ def home(request):
 
 
 def room(request):
-    return render(request, 'home/room.html', {"rooms": rooms})
+    return render(request, 'home/room.html', {"rooms": RoomDatabase.objects.all()})
 
 
 def room_dynamic(request, pk):
-    return render(request, 'home/room.html', {"name": pk})
+    pk = int(pk)
+    details = RoomDatabase.objects.get(id=pk)
+    return render(request, 'home/room.html', {"name": details.name, "description": details.description})
