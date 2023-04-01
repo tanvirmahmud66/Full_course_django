@@ -3,7 +3,9 @@
 {%block content%}
     <h1>This is Room</h1>
     <a href="{%url 'create-room'%}">create room</a>
+    <hr>
     {%for room in rooms%}
+        <a href="{%url 'update-room' room.id%}">Edit</a>
         <h3>@{{room.host}}</h3>
         <p><a href="{% url 'room_dynamic_route' room.id %}">{{room.name}}</a></p>
         <h5>#{{room.topic}}</h5>

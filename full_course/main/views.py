@@ -26,3 +26,14 @@ def create_room(request):
             forms.save()
             return redirect('room')
     return render(request, 'home/room_form.html', {"forms": forms})
+
+
+def update_room(request, pk):
+    room = RoomDatabase.objects.get(id=pk)
+    forms = RoomForm(instance=room)
+    if request.method == "POST":
+        forms = RoomForm(request.POST, instance=room)
+        if forms.is_valid():
+            forms.save()
+            return redirect('room')
+    return render(request, 'home/room_form.html', {"forms": forms})
