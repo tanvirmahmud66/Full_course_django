@@ -5,6 +5,11 @@
     <ul class="menu">
       <li><a href="{%url 'room'%}">Room</a></li>
     </ul>
+    <div>
+      <form method="GET" action="{%url 'room'%}">
+        <input type="text" name="q" placeholder="Search room..."/>
+      </form>
+    </div>
     <div class="buttons">
       <a href="#" class="signup-btn">Sign Up</a>
       <a href="#" class="signin-btn">Sign In</a>
