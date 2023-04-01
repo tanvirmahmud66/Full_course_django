@@ -21,3 +21,7 @@ def room_dynamic(request, pk):
     pk = int(pk)
     details = RoomDatabase.objects.get(id=pk)
     return render(request, 'home/room.html', {"name": details.name, "description": details.description})
+
+
+def create_room(request):
+    return render(request, 'home/room_form.html')
