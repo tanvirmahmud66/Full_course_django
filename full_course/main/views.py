@@ -1,12 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import RoomDatabase
+from .forms import RoomForm
 # Create your views here.
-
-rooms = [
-    {"id": 1, "name": "Tanvir"},
-    {"id": 2, "name": "Mahmud"},
-    {"id": 3, "name": "Fahim"},
-]
 
 
 def home(request):
@@ -24,4 +19,10 @@ def room_dynamic(request, pk):
 
 
 def create_room(request):
-    return render(request, 'home/room_form.html')
+    forms = RoomForm()
+    if request.method == "POST":
+        forms = RoomForm(request.POST)
+        if forms.is_valid():
+            forms.save()
+            return redirect('room')
+    return render(request, 'home/room_form.html', {"forms": forms})
