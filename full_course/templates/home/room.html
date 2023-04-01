@@ -6,8 +6,9 @@
     <hr>
     {%for room in rooms%}
         <a href="{%url 'update-room' room.id%}">Edit</a>
-        <h3>@{{room.host}}</h3>
-        <p><a href="{% url 'room_dynamic_route' room.id %}">{{room.name}}</a></p>
+        <a href="{%url 'delete-room' room.id%}">Delete</a>
+        <h5>@{{room.host}}</h5>
+        <h3><a href="{% url 'room_dynamic_route' room.id %}">{{room.name}}</a></h3>
         <h5>#{{room.topic}}</h5>
         <hr>
     {%endfor%}

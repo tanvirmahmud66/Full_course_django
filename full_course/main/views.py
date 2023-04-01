@@ -37,3 +37,11 @@ def update_room(request, pk):
             forms.save()
             return redirect('room')
     return render(request, 'home/room_form.html', {"forms": forms})
+
+
+def delete_room(request, pk):
+    room = RoomDatabase.objects.get(id=pk)
+    if request.method == "POST":
+        room.delete()
+        return redirect('room')
+    return render(request, 'home/delete.html', {"obj": room})
