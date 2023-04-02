@@ -5,10 +5,6 @@ from .forms import RoomForm
 # Create your views here.
 
 
-def home(request):
-    return render(request, 'home/home.html')
-
-
 def room(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     rooms = RoomDatabase.objects.filter(
