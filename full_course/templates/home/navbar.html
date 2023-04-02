@@ -11,10 +11,10 @@
     <div class="buttons">
       
       {%if request.user.is_authenticated%}
-      <a href="#" class="signup-btn">Profile</a>
+      <a href="#" class="signup-btn">{{request.user.username | capfirst}}</a>
       <a href="{%url 'logout'%}" class="signin-btn">Logout</a>
       {%else%}
-      <a href="#" class="signup-btn">Sign-up</a>
+      <a href="{%url 'signup'%}" class="signup-btn">Sign-up</a>
       <a href="{%url 'login'%}" class="signin-btn">Sign In</a>
       {%endif%}
     </div>
