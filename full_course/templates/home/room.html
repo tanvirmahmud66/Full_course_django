@@ -30,16 +30,18 @@
     <div>
         <div class="top_portion">
             <p>{{room_count}} rooms availble</p>
-            <a href="{%url 'create-room'%}">create room</a>
+            <a href="{%url 'create-room'%}">Create-room</a>
         </div>
         
         <hr>
         {%for room in rooms%}
-            <a href="{%url 'update-room' room.id%}">Edit</a>
-            <a href="{%url 'delete-room' room.id%}">Delete</a>
-            <h5>@{{room.host}}</h5>
+            <h5>Host: @{{room.host}}</h5>
             <h3><a href="{% url 'room_dynamic_route' room.id %}">{{room.name}}</a></h3>
             <h5>#{{room.topic}}</h5>
+            {%if request.user == room.host %}
+            <a href="{%url 'update-room' room.id%}">Edit</a>
+            <a href="{%url 'delete-room' room.id%}">Delete</a>
+            {% endif %}
             <hr>
         {%endfor%}
         <h1>{{name}}</h1>
